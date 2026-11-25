@@ -1,0 +1,450 @@
+/*
+  bestenfitnessgerätehersteller.de: a German product-test magazine set as a
+  Prüfprotokoll. Test-green fields own the masthead, the register and the
+  colophon; reading text sits on cool white paper; highlighter yellow marks
+  only verdict labels and the wordmark.
+*/
+
+:root {
+  --green: #0d3b2e;
+  --green-deep: #082a20;
+  --green-line: #2c6150;
+  --on-green: #eef5f1;
+  --on-green-soft: #b4cfc2;
+  --paper: #f5f7f6;
+  --ink: #121815;
+  --ink-soft: #45514b;
+  --rule: #c9d2cd;
+  --marker: #e6f23f;
+
+  --font-display: var(--font-archivo), "Arial Narrow", sans-serif;
+  --font-text: var(--font-serif), Georgia, serif;
+
+  --gutter: clamp(1rem, 4vw, 3rem);
+  --max: 76rem;
+
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--green-line) var(--paper);
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-text);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  font-variant-numeric: oldstyle-nums;
+}
+
+::selection {
+  background: var(--marker);
+  color: var(--ink);
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--ink);
+  outline-offset: 3px;
+}
+
+.masthead :focus-visible,
+.register :focus-visible,
+.colophon :focus-visible {
+  outline-color: var(--marker);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  word-spacing: 0.05em;
+  text-wrap: balance;
+  margin: 0;
+}
+
+mark {
+  background: linear-gradient(transparent 12%, var(--marker) 12%, var(--marker) 88%, transparent 88%);
+  color: var(--ink);
+  padding: 0 0.15em;
+  -webkit-box-decoration-break: clone;
+  box-decoration-break: clone;
+  white-space: nowrap;
+}
+
+.skip {
+  position: absolute;
+  left: 1rem;
+  top: -4rem;
+  z-index: 10;
+  background: var(--marker);
+  color: var(--ink);
+  padding: 0.5rem 0.9rem;
+  font-family: var(--font-display);
+  font-weight: 700;
+}
+
+.skip:focus {
+  top: 1rem;
+}
+
+/* ---------- Masthead ---------- */
+
+.masthead {
+  background: var(--green);
+  color: var(--on-green);
+  border-bottom: 6px solid var(--ink);
+}
+
+.masthead__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 1.25rem var(--gutter) 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-template-areas:
+    "mark nav"
+    "tag  nav";
+  align-items: end;
+  column-gap: 2rem;
+  row-gap: 0.35rem;
+}
+
+.wordmark {
+  grid-area: mark;
+  display: inline-flex;
+  flex-direction: column;
+  text-decoration: none;
+  font-family: var(--font-display);
+  font-stretch: 68%;
+  font-weight: 800;
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  text-transform: lowercase;
+}
+
+.wordmark__top {
+  font-size: clamp(1.6rem, 4.2vw, 2.4rem);
+}
+
+.wordmark__mark {
+  position: relative;
+  isolation: isolate;
+  color: var(--ink);
+  padding: 0 0.08em;
+  margin-right: 0.04em;
+}
+
+.wordmark__mark::before {
+  content: "";
+  position: absolute;
+  inset: 14% 0 8%;
+  z-index: -1;
+  background: var(--marker);
+}
+
+.wordmark__bottom {
+  font-size: clamp(1.6rem, 4.2vw, 2.4rem);
+  font-weight: 400;
+  font-stretch: 75%;
+  color: var(--on-green-soft);
+}
+
+.masthead__tag {
+  grid-area: tag;
+  margin: 0.4rem 0 0;
+  font-family: var(--font-display);
+  font-stretch: 80%;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--on-green-soft);
+}
+
+.masthead__nav {
+  grid-area: nav;
+  justify-self: end;
+}
+
+.masthead__nav ul,
+.colophon__nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1.5rem;
+}
+
+.masthead__nav a {
+  font-family: var(--font-display);
+  font-stretch: 85%;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  text-decoration: none;
+  padding: 0.35rem 0;
+  display: inline-block;
+  border-bottom: 2px solid transparent;
+  transition: border-color 160ms ease-out;
+  touch-action: manipulation;
+}
+
+.masthead__nav a:hover {
+  border-bottom-color: var(--marker);
+}
+
+/* ---------- Issue head ---------- */
+
+.issue__head,
+.issue__lede,
+.method {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding-inline: var(--gutter);
+}
+
+.issue__head {
+  padding-top: clamp(2.5rem, 7vw, 5.5rem);
+}
+
+.issue__title {
+  font-size: clamp(2.4rem, 6vw, 4.75rem);
+  font-stretch: 70%;
+  font-weight: 800;
+  line-height: 0.95;
+  letter-spacing: -0.02em;
+  word-spacing: 0.06em;
+  max-width: 19ch;
+  hyphens: manual;
+}
+
+.byline {
+  margin: 1.5rem 0 0;
+  padding-top: 0.7rem;
+  border-top: 4px solid var(--ink);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem 0;
+  font-family: var(--font-display);
+  font-stretch: 90%;
+  font-size: 0.875rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+.byline__item {
+  padding-right: 0.9rem;
+  margin-right: 0.9rem;
+  border-right: 1px solid var(--rule);
+}
+
+.byline__item:last-child {
+  border-right: 0;
+  margin-right: 0;
+  padding-right: 0;
+}
+
+.byline__author {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.byline__placeholder {
+  color: var(--ink);
+  font-weight: 600;
+  outline: 1px dashed var(--ink-soft);
+  outline-offset: 1px;
+  padding: 0 0.2em;
+}
+
+/* ---------- Lede ---------- */
+
+.issue__lede {
+  padding-top: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.issue__lede p {
+  max-width: 62ch;
+  hyphens: auto;
+  margin: 0 0 1em;
+}
+
+.issue__lede p:first-child {
+  font-size: clamp(1.25rem, 2.2vw, 1.5rem);
+  line-height: 1.45;
+}
+
+/* ---------- Method: protocol fields ---------- */
+
+.method {
+  padding-top: clamp(2.5rem, 6vw, 4.5rem);
+  padding-bottom: clamp(3rem, 7vw, 5.5rem);
+}
+
+.method__title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-stretch: 75%;
+  font-weight: 800;
+  margin-bottom: 1.25rem;
+}
+
+.method__list {
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem 2.5rem;
+}
+
+.method__list > div {
+  border-top: 2px solid var(--ink);
+  padding-top: 0.75rem;
+}
+
+.method__list dt {
+  font-family: var(--font-display);
+  font-stretch: 80%;
+  font-weight: 700;
+  font-size: 0.8125rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.method__list dd {
+  margin: 0;
+  hyphens: auto;
+  color: var(--ink-soft);
+}
+
+/* ---------- Register: the compared makers ---------- */
+
+.register {
+  background: var(--green);
+  color: var(--on-green);
+}
+
+.register__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: clamp(3rem, 7vw, 5.5rem) var(--gutter);
+}
+
+.register__title {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-stretch: 70%;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.015em;
+}
+
+.register__note {
+  margin: 0.75rem 0 2rem;
+  color: var(--on-green-soft);
+}
+
+.register__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border-top: 3px solid var(--on-green);
+  columns: 3 16rem;
+  column-gap: 2.5rem;
+}
+
+.register__name {
+  break-inside: avoid;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid var(--green-line);
+  font-family: var(--font-display);
+  font-stretch: 75%;
+  font-weight: 700;
+  font-size: clamp(1.25rem, 2.4vw, 1.625rem);
+  line-height: 1.15;
+}
+
+/* ---------- Colophon ---------- */
+
+.colophon {
+  background: var(--green-deep);
+  color: var(--on-green-soft);
+}
+
+.colophon__inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 2rem var(--gutter) 2.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem 2rem;
+}
+
+.colophon__disclosure {
+  margin: 0;
+  color: var(--on-green);
+  max-width: 60ch;
+}
+
+.colophon__nav a {
+  font-family: var(--font-display);
+  font-stretch: 85%;
+  font-size: 0.875rem;
+  text-decoration: none;
+}
+
+.colophon__nav a:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--marker);
+}
+
+/* ---------- Narrow screens ---------- */
+
+@media (max-width: 52rem) {
+  .masthead__inner {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "mark"
+      "tag"
+      "nav";
+  }
+
+  .masthead__nav {
+    justify-self: start;
+    margin-top: 0.5rem;
+  }
+
+  .method__list {
+    grid-template-columns: 1fr;
+  }
+
+  .masthead__nav a {
+    padding: 0.7rem 0;
+  }
+
+  .byline {
+    flex-direction: column;
+  }
+
+  .byline__item {
+    border-right: 0;
+    margin-right: 0;
+    padding-right: 0;
+  }
+}

@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "manufacturer.schema.json",
+  "title": "Manufacturer fact file",
+  "description": "One file per maker at data/manufacturers/<slug>.json. Every fact is a field object with value, source_url and checked. A fact the maker does not publish is stored as the exact string \"nicht angegeben\" and never guessed. scripts/check-data.mjs enforces this schema without dependencies.",
+  "type": "object",
+  "required": ["slug", "fields"],
+  "additionalProperties": false,
+  "properties": {
+    "$schema": { "type": "string" },
+    "slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$",
+      "description": "Equals the file name without .json."
+    },
+    "fields": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "legal_entity",
+        "country_of_origin",
+        "founded",
+        "production_locations",
+        "sales_model",
+        "dach_office",
+        "dach_service",
+        "product_lines_selectorised",
+        "product_lines_plate_loaded",
+        "product_lines_cardio",
+        "product_lines_free_weights",
+        "max_stack_weight",
+        "customisation",
+        "frame_warranty",
+        "lead_time",
+        "planning_turnkey",
+        "financing_leasing",
+        "price_publication",
+        "stark_bei",
+        "weniger_geeignet_wenn",
+        "best_fit_buyer"
+      ],
+      "properties": {
+        "name": { "$ref": "#/$defs/field", "description": "Brand name as the maker writes it." },
+        "legal_entity": { "$ref": "#/$defs/field", "description": "Legal entity that sells to DACH buyers, with seat." },
+        "country_of_origin": { "$ref": "#/$defs/field", "description": "Country where the maker is based and produces." },
+        "founded": { "$ref": "#/$defs/field", "description": "Founding year as the maker publishes it." },
+        "production_locations": { "$ref": "#/$defs/field", "description": "Own factories by town and country." },
+        "sales_model": { "$ref": "#/$defs/field", "description": "Direct, dealer, or both." },
+        "dach_office": { "$ref": "#/$defs/field", "description": "Office or showroom presence relevant to DACH buyers." },
+        "dach_service": { "$ref": "#/$defs/field", "description": "How service and repairs reach DACH buyers." },
+        "product_lines_selectorised": { "$ref": "#/$defs/field", "description": "Selectorised (pin-loaded) lines." },
+        "product_lines_plate_loaded": { "$ref": "#/$defs/field", "description": "Plate-loaded lines." },
+        "product_lines_cardio": { "$ref": "#/$defs/field", "description": "Cardio offer." },
+        "product_lines_free_weights": { "$ref": "#/$defs/field", "description": "Free weights, racks and benches." },
+        "max_stack_weight": { "$ref": "#/$defs/field", "description": "Highest published weight stack on a selectorised machine." },
+        "customisation": { "$ref": "#/$defs/field", "description": "Published colour, upholstery and logo options, and whether they cost extra." },
+        "frame_warranty": { "$ref": "#/$defs/field", "description": "Published warranty on the frame." },
+        "lead_time": { "$ref": "#/$defs/field", "description": "Published time from order to delivery or handover." },
+        "planning_turnkey": { "$ref": "#/$defs/field", "description": "Planning and full fit-out services." },
+        "financing_leasing": { "$ref": "#/$defs/field", "description": "Financing or leasing the maker offers itself or through partners." },
+        "price_publication": { "$ref": "#/$defs/field", "description": "Whether and how prices are published." },
+        "stark_bei": { "$ref": "#/$defs/field", "description": "Editorial: real strengths, each backed by the cited sources." },
+        "weniger_geeignet_wenn": { "$ref": "#/$defs/field", "description": "Editorial: buyer situations the maker fits less well, each backed by the cited sources." },
+        "best_fit_buyer": { "$ref": "#/$defs/field", "description": "Editorial fit label (\"Beste Wahl für ...\"); no scores." }
+      }
+    }
+  },
+  "$defs": {
+    "url": { "type": "string", "pattern": "^https://" },
+    "field": {
+      "type": "object",
+      "required": ["value", "checked"],
+      "additionalProperties": false,
+      "properties": {
+        "value": {
+          "description": "The fact, or the exact string \"nicht angegeben\" when the maker does not publish it.",
+          "anyOf": [
+            { "type": "string", "minLength": 1 },
+            { "type": "number" },
+            { "type": "boolean" },
+            { "type": "array", "minItems": 1, "items": { "type": "string", "minLength": 1 } }
+          ]
+        },
+        "source_url": {
+          "description": "Live public page(s) that state the value. Required unless value is \"nicht angegeben\".",
+          "anyOf": [
+            { "$ref": "#/$defs/url" },
+            { "type": "array", "minItems": 1, "items": { "$ref": "#/$defs/url" } }
+          ]
+        },
+        "checked": {
+          "type": "string",
+          "format": "date",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "description": "ISO date on which the value was confirmed on the source page."
+        },
+        "note": {
+          "type": "string",
+          "description": "Optional internal remark, for example a conflict between sources. Not for publication."
+        }
+      },
+      "if": { "not": { "properties": { "value": { "const": "nicht angegeben" } } } },
+      "then": { "required": ["value", "source_url", "checked"] }
+    }
+  }
+}

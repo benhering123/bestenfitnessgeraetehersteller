@@ -1,0 +1,23 @@
+node_modules/
+.next/
+.vercel/
+.env*
+*.excalidraw
+out/
+.claude/
+*.tsbuildinfo
+next-env.d.ts
+.vercel
+
+# Internal planning, kept out of the public repo (Ben, 2026-11-25)
+docs/
+HANDOFF.md
+PRODUCT.md
+.claude/
+.impeccable/
+.playwright-mcp/
+
+# Research tooling and photo pool, kept local (decision 2026-11-25)
+assets/pool/
+scripts/keyword-*.mjs
+scripts/extract-excalidraw.mjs

@@ -1,0 +1,175 @@
+{
+  "$schema": "./schema.json",
+  "slug": "telju-fitness",
+  "fields": {
+    "name": {
+      "value": "Telju Fitness",
+      "source_url": "https://www.telju.de/",
+      "checked": "2026-11-25"
+    },
+    "legal_entity": {
+      "value": "Telju Fitness BeNeLux B.V., Havenkant 2, 4781 AA Moerdijk, Niederlande (KvK 92601855)",
+      "source_url": "https://www.telju.de/impressum",
+      "checked": "2026-11-25",
+      "note": "Seller to DACH buyers. The Spanish manufacturing company is not named on telju.de."
+    },
+    "country_of_origin": {
+      "value": "Spanien",
+      "source_url": "https://www.telju.de/ueber-uns",
+      "checked": "2026-11-25"
+    },
+    "founded": {
+      "value": "1985",
+      "source_url": "https://www.telju.de/ueber-uns",
+      "checked": "2026-11-25",
+      "note": "Confirmed by Ben 2026-11-25; /ueber-uns corrected to 1985 in telju-website commit f18375d."
+    },
+    "production_locations": {
+      "value": [
+        "Alcabón (Spanien)",
+        "Torrijos (Spanien)"
+      ],
+      "source_url": "https://www.telju.de/ueber-uns",
+      "checked": "2026-11-25"
+    },
+    "sales_model": {
+      "value": "Direktvertrieb vom Hersteller, ohne Händler",
+      "source_url": "https://www.telju.de/ueber-uns",
+      "checked": "2026-11-25"
+    },
+    "dach_office": {
+      "value": "Kein Standort in DACH angegeben. Sitz in Moerdijk (NL), Showroom in Dordrecht (NL); auf Wunsch kommt Telju mit Geräten zum Kunden.",
+      "source_url": [
+        "https://www.telju.de/kontakt",
+        "https://www.telju.de/impressum"
+      ],
+      "checked": "2026-11-25",
+      "note": "Master file 0.6.8 also names Veenendaal as a showroom; telju.de does not call Veenendaal a showroom."
+    },
+    "dach_service": {
+      "value": "Lieferung, Montage und Einweisung vor Ort in Deutschland, Österreich und der Schweiz; deutschsprachiger Support; Ersatzteile direkt vom Hersteller. Wer in welcher Region repariert, ist auf telju.de nicht angegeben.",
+      "source_url": [
+        "https://www.telju.de/kontakt",
+        "https://www.telju.de/fitnessstudio-einrichten"
+      ],
+      "checked": "2026-11-25",
+      "note": "Master file 0.6.2 (MQ-01): Telju repairs in person in BeNeLux and German regions bordering NL, one service partner per region elsewhere. Not stated on telju.de."
+    },
+    "product_lines_selectorised": {
+      "value": [
+        "SHOCK (Steckgewicht)",
+        "Heavy Lifters Line (Steckgewicht, Stapel bis 160 kg)"
+      ],
+      "source_url": "https://www.telju.de/kraftgerate",
+      "checked": "2026-11-25"
+    },
+    "product_lines_plate_loaded": {
+      "value": [
+        "PEAK (Plate Loaded)"
+      ],
+      "source_url": "https://www.telju.de/kraftgerate/plate-loaded",
+      "checked": "2026-11-25"
+    },
+    "product_lines_cardio": {
+      "value": "Ja: u. a. Laufbänder, Ergometer, Crosstrainer, Rudergeräte und Stairmaster",
+      "source_url": "https://www.telju.de/cardiogeraete",
+      "checked": "2026-11-25"
+    },
+    "product_lines_free_weights": {
+      "value": "Ja: Trainingsbänke, Power Racks und Ständer, Kurz- und Langhanteln, Gewichtsscheiben, funktionelles Zubehör",
+      "source_url": "https://www.telju.de/kraftgerate/freigewichte",
+      "checked": "2026-11-25"
+    },
+    "max_stack_weight": {
+      "value": "160 kg (Heavy Lifters Line); 200 kg optional an der horizontalen Beinpresse",
+      "source_url": [
+        "https://www.telju.de/kraftgerate/bodybuilding-gerate",
+        "https://www.telju.de/kraftgerate/bodybuilding-gerate/produkte/horizontale-beinpresse"
+      ],
+      "checked": "2026-11-25",
+      "note": "Confirmed by Ben 2026-11-25: 200 kg only on the horizontal leg press."
+    },
+    "customisation": {
+      "value": "40 RAL-Farben für den Rahmen, Polsterfarbe frei, Kontrastnähte, Logo als Stickerei auf dem Polster oder als Prägung oder Lasergravur auf dem Rahmen; ohne Aufpreis, ab einem Gerät",
+      "source_url": [
+        "https://www.telju.de/individualisierung",
+        "https://www.telju.de/referenzen"
+      ],
+      "checked": "2026-11-25"
+    },
+    "frame_warranty": {
+      "value": "6 Jahre auf Rahmen und tragende Metallstruktur (Kraftgeräte); unbegrenzt auf Rahmen und Struktur (Cardiogeräte)",
+      "source_url": "https://www.telju.de/agb",
+      "checked": "2026-11-25"
+    },
+    "lead_time": {
+      "value": "Durchschnittlich 90 Arbeitstage ab Auftragsbestätigung bis zur Übergabe, inklusive Individualisierung",
+      "source_url": "https://www.telju.de/ueber-uns",
+      "checked": "2026-11-25",
+      "note": "Confirmed by Ben 2026-11-25. The 80-day badge on /fitnessstudio-einrichten was corrected to 90 in telju-website commit f18375d."
+    },
+    "planning_turnkey": {
+      "value": "Gym-Konfigurator kostenlos; professionelle 3D-Planung 1.500 €, bei Bestellungen über 50.000 € voll angerechnet, darunter 1.000 €; Komplettausbau mit Flächenplanung, Boden, Spiegeln, Beleuchtung, Lieferung und Montage; 24/7-Hardware über den Partner 247toegang",
+      "source_url": [
+        "https://www.telju.de/gym-konfigurator",
+        "https://www.telju.de/fitnessstudio-einrichten",
+        "https://www.telju.de/fitnessstudio-eroeffnen"
+      ],
+      "checked": "2026-11-25"
+    },
+    "financing_leasing": {
+      "value": "Ja: 50/50-Sofortmodell direkt über Telju (50 % Anzahlung, Rest in festen Monatsraten, ohne Bonitätsprüfung) oder Finanzierungsleasing über Partner; ab 10.000 € Auftragswert; nur für Unternehmen",
+      "source_url": "https://www.telju.de/leasing",
+      "checked": "2026-11-25",
+      "note": "Master file 0.6.5 (MQ-11): interest about 9.6 %. No telju.de page states a rate, so the rate is left out."
+    },
+    "price_publication": {
+      "value": "Keine Preisliste. Veröffentlicht ist ein Einstiegspreis: einzelne Geräte ab 1.800 €; den genauen Preis nennt Telju im Angebot. Cardio-Preise auf Anfrage.",
+      "source_url": [
+        "https://www.telju.de/kraftgerate",
+        "https://www.telju.de/cardiogeraete"
+      ],
+      "checked": "2026-11-25"
+    },
+    "stark_bei": {
+      "value": [
+        "Individualisierung ohne Aufpreis: 40 RAL-Rahmenfarben, Polster, Nähte und Logo, schon ab einem Gerät",
+        "Schwere Steckgewichte bis 160 kg (Heavy Lifters Line) mit 1:1-Kraftübertragung",
+        "Neueröffnung aus einer Hand: Flächenplanung, Boden, Geräte, Montage und 24/7-Technik über einen Partner",
+        "Direktkauf beim Hersteller, Leasing ab 10.000 € Auftragswert, im 50/50-Modell ohne Bonitätsprüfung"
+      ],
+      "source_url": [
+        "https://www.telju.de/individualisierung",
+        "https://www.telju.de/kraftgerate",
+        "https://www.telju.de/fitnessstudio-eroeffnen",
+        "https://www.telju.de/leasing"
+      ],
+      "checked": "2026-11-25"
+    },
+    "weniger_geeignet_wenn": {
+      "value": [
+        "Sie ein Home-Gym oder einen privaten Trainingsraum ausstatten: Telju baut für kommerzielle Betreiber und verleast nur an Unternehmen.",
+        "Sie gebrauchte oder refurbished Geräte suchen: Telju verkauft neue Geräte.",
+        "Sie die Geräte in wenigen Wochen brauchen: Telju fertigt auf Bestellung, im Schnitt 90 Arbeitstage bis zur Übergabe.",
+        "Sie Gerätepreise vorab aus einer Preisliste vergleichen wollen: Telju nennt den genauen Preis erst im Angebot."
+      ],
+      "source_url": [
+        "https://www.telju.de/",
+        "https://www.telju.de/leasing",
+        "https://www.telju.de/kraftgerate",
+        "https://www.telju.de/ueber-uns"
+      ],
+      "checked": "2026-11-25",
+      "note": "Master file 0.6.7 (MQ-19): Telju does not do gym takeovers. No telju.de page says so, so takeovers are not listed here yet."
+    },
+    "best_fit_buyer": {
+      "value": "Beste Wahl für Neubau-Studios (300–800 m²)",
+      "source_url": [
+        "https://www.telju.de/fitnessstudio-eroeffnen",
+        "https://www.telju.de/referenzen"
+      ],
+      "checked": "2026-11-25",
+      "note": "The 300–800 m² range is the target buyer group of this comparison, not a telju.de statement; the cited pages back the new-build fit."
+    }
+  }
+}
